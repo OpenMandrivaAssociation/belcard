@@ -1,0 +1,21 @@
+diff -up ./CMakeLists.txt.orig ./CMakeLists.txt
+--- ./CMakeLists.txt.orig	2018-01-01 13:47:30.914375757 +0200
++++ ./CMakeLists.txt	2018-01-01 13:49:57.003854611 +0200
+@@ -147,14 +147,14 @@ configure_file(cmake/BelcardConfig.cmake
+ 	"${CMAKE_CURRENT_BINARY_DIR}/BelcardConfig.cmake"
+ 	@ONLY
+ )
+-set(ConfigPackageLocation share/Belcard/cmake)
++set(CONFIG_PACKAGE_LOCATION share/Belcard/cmake CACHE PATH "CMake configuration file location")
+ install(EXPORT ${EXPORT_TARGETS_NAME}Targets
+ 	FILE BelcardTargets.cmake
+-	DESTINATION ${ConfigPackageLocation}
++	DESTINATION ${CONFIG_PACKAGE_LOCATION}
+ )
+ install(FILES
+ 	"${CMAKE_CURRENT_BINARY_DIR}/BelcardConfig.cmake"
+-	DESTINATION ${ConfigPackageLocation}
++	DESTINATION ${CONFIG_PACKAGE_LOCATION}
+ )
+ 
+ 
