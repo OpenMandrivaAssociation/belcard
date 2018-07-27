@@ -48,7 +48,8 @@ sed -i -e 's,\r$,,' CMakeLists.txt
 %cmake \
   -DENABLE_STATIC:BOOL=NO \
   -DENABLE_STRICT:BOOL=NO \
-  -DCONFIG_PACKAGE_LOCATION:PATH=%{_libdir}/cmake/Belcard
+  -DCONFIG_PACKAGE_LOCATION:PATH=%{_libdir}/cmake/Belcard \
+  -DENABLE_UNIT_TESTS=NO 
 %make
 
 %install
