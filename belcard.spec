@@ -42,7 +42,7 @@ This package contains development files for %{name}
 %prep
 %setup -qn %{name}-%{version}-0
 sed -i -e 's,\r$,,' CMakeLists.txt
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake \
