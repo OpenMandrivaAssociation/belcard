@@ -9,7 +9,7 @@ Release:	1
 License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
-Source0:	https://linphone.org/releases/sources/belcard/belcard-%{version}.tar.gz
+Source0:	https://github.com/BelledonneCommunications/archive/belcard-%{version}.tar.gz
 # (wally) from OpenSUSE to install pkgconfig .pc file
 Patch0:		belcard-fix-pkgconfig.patch
 # (wally) alow overriding cmake config file location from cmd line
