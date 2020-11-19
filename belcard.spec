@@ -39,7 +39,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 This package contains development files for %{name}
 
 %prep
-%setup -qn %{name}-%{version}-0
+%autosetup -p1
 sed -i -e 's,\r$,,' CMakeLists.txt
 %autopatch -p1
 
