@@ -4,13 +4,12 @@
 
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
-Version:	1.0.2
-Release:	2
+Version:	4.4.8
+Release:	1
 License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
 Source0:	https://linphone.org/releases/sources/belcard/belcard-%{version}.tar.gz
-Source1:	https://linphone.org/releases/sources/belcard/belcard-%{version}.tar.gz.md5
 # (wally) from OpenSUSE to install pkgconfig .pc file
 Patch0:		belcard-fix-pkgconfig.patch
 # (wally) alow overriding cmake config file location from cmd line
@@ -18,7 +17,7 @@ Patch1:         belcard-1.0.2-cmake-config-location.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
 BuildRequires:	pkgconfig(udev)
-BuildRequires:	bctoolbox-static-devel
+BuildRequires:	pkgconfig(bctoolbox)
 
 %description
 Belcard is a C++ library to manipulate the vCard standard format.
@@ -44,16 +43,19 @@ This package contains development files for %{name}
 sed -i -e 's,\r$,,' CMakeLists.txt
 %autopatch -p1
 
+# Fix version
+sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLists.txt
+
 %build
 %cmake \
   -DENABLE_STATIC:BOOL=NO \
   -DENABLE_STRICT:BOOL=NO \
-  -DCONFIG_PACKAGE_LOCATION:PATH=%{_libdir}/cmake/Belcard \
   -DENABLE_UNIT_TESTS=NO 
-%make
+
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 find %{buildroot} -name "*.la" -delete
 
@@ -68,6 +70,5 @@ find %{buildroot} -name "*.la" -delete
 %files -n %{develname}
 %{_includedir}/%{name}/
 %{_libdir}/lib%{name}.so
-%{_libdir}/cmake/Belcard/
+%{_libdir}/cmake/?elcard/
 %{_libdir}/pkgconfig/%{name}.pc
-
