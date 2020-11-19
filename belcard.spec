@@ -61,6 +61,7 @@ find %{buildroot} -name "*.la" -delete
 
 %files
 %{_bindir}/*
+%{_datadir}/belr
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.*
