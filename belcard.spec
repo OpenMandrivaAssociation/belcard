@@ -16,7 +16,7 @@ Patch0:		belcard-fix-pkgconfig.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
 BuildRequires:	pkgconfig(udev)
-BuildRequires:	pkgconfig(bctoolbox)
+BuildRequires:	bctoolbox-static-devel
 
 %description
 Belcard is a C++ library to manipulate the vCard standard format.
