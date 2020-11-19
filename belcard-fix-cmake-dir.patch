@@ -6,7 +6,7 @@ diff -Naur belcard-4.4.8/CMakeLists.txt belcard-4.4.8.tpg/CMakeLists.txt
  	NO_SET_AND_CHECK_MACRO
  )
 -set(ConfigPackageLocation "share/${EXPORT_TARGETS_NAME}/cmake")
-+set(ConfigPackageLocation "${CMAKE_INSTALL_LIBDIR}/cmake/${EXPORT_TARGET_NAME}")
++set(ConfigPackageLocation "${CMAKE_INSTALL_LIBDIR}/cmake/${EXPORT_TARGETS_NAME}")
  install(EXPORT ${EXPORT_TARGETS_NAME}Targets
  	FILE ${EXPORT_TARGETS_NAME}Targets.cmake
  	DESTINATION ${ConfigPackageLocation}
