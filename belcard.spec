@@ -12,7 +12,7 @@ URL:		https://linphone.org/
 Source0:	https://github.com/BelledonneCommunications/archive/belcard-%{version}.tar.gz
 # (wally) from OpenSUSE to install pkgconfig .pc file
 Patch0:		belcard-fix-pkgconfig.patch
-
+Patch1:		belcard-fix-cmake-dir.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
 BuildRequires:	pkgconfig(udev)
