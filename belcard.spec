@@ -15,35 +15,34 @@ Patch0:		belcard-fix-pkgconfig.patch
 # (wally) alow overriding cmake config file location from cmd line
 Patch1:         belcard-1.0.2-cmake-config-location.patch
 
-#BuildRequires:	cmake
-#BuildRequires:	pkgconfig(belr)
-#BuildRequires:	pkgconfig(udev)
-#BuildRequires:	pkgconfig(bctoolbox)
+BuildRequires:	cmake
+BuildRequires:	pkgconfig(belr)
+BuildRequires:	pkgconfig(udev)
+BuildRequires:	pkgconfig(bctoolbox)
 
 %description
 Belcard is a C++ library to manipulate the vCard standard format.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	C++ library to manipulate vCard standard format
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 Belcard is a C++ library to manipulate the vCard standard format.
 
-%package -n	%{develname}
+%package -n %{develname}
 Summary:	Development files for %{name}
 Group:		Development/C++
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n	%{develname}
+%description -n %{develname}
 This package contains development files for %{name}
 
 %prep
 %autosetup -p1
 
 sed -i -e 's,\r$,,' CMakeLists.txt
-%autopatch -p1
 
 # Fix version
 sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLists.txt
