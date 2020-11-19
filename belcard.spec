@@ -12,8 +12,6 @@ URL:		https://linphone.org/
 Source0:	https://github.com/BelledonneCommunications/archive/belcard-%{version}.tar.gz
 # (wally) from OpenSUSE to install pkgconfig .pc file
 Patch0:		belcard-fix-pkgconfig.patch
-# (wally) alow overriding cmake config file location from cmd line
-Patch1:         belcard-1.0.2-cmake-config-location.patch
 
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
@@ -51,7 +49,8 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
 %cmake \
   -DENABLE_STATIC:BOOL=NO \
   -DENABLE_STRICT:BOOL=NO \
-  -DENABLE_UNIT_TESTS=NO 
+  -DENABLE_UNIT_TESTS=NO \
+  -DENABLE_UNIT_TESTS:BOOL=OFF
 
 %make_build
 
