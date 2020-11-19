@@ -14,10 +14,11 @@ Source0:	https://linphone.org/releases/sources/belcard/belcard-%{version}.tar.gz
 Patch0:		belcard-fix-pkgconfig.patch
 # (wally) alow overriding cmake config file location from cmd line
 Patch1:         belcard-1.0.2-cmake-config-location.patch
-BuildRequires:	cmake
-BuildRequires:	pkgconfig(belr)
-BuildRequires:	pkgconfig(udev)
-BuildRequires:	pkgconfig(bctoolbox)
+
+#BuildRequires:	cmake
+#BuildRequires:	pkgconfig(belr)
+#BuildRequires:	pkgconfig(udev)
+#BuildRequires:	pkgconfig(bctoolbox)
 
 %description
 Belcard is a C++ library to manipulate the vCard standard format.
@@ -40,6 +41,7 @@ This package contains development files for %{name}
 
 %prep
 %autosetup -p1
+
 sed -i -e 's,\r$,,' CMakeLists.txt
 %autopatch -p1
 
