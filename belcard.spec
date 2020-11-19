@@ -60,14 +60,13 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
 find %{buildroot} -name "*.la" -delete
 
 %files
-%doc README.md COPYING
 %{_bindir}/*
 
 %files -n %{libname}
-%doc AUTHORS NEWS README.md COPYING
 %{_libdir}/lib%{name}.so.*
 
 %files -n %{develname}
+%doc README.md
 %{_includedir}/%{name}/
 %{_libdir}/lib%{name}.so
 %{_libdir}/cmake/?elcard/
