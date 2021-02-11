@@ -5,7 +5,7 @@
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
 Version:	4.4.24
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
@@ -18,6 +18,7 @@ BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	bctoolbox-static-devel
+BuildRequires:  ninja
 
 %description
 Belcard is a C++ library to manipulate the vCard standard format.
@@ -72,10 +73,11 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
   -DENABLE_STRICT:BOOL=NO \
   -DENABLE_UNIT_TESTS=NO \
   -DENABLE_UNIT_TESTS:BOOL=OFF
+  -G Ninja
 
-%make_build
+%ninja_build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 find %{buildroot} -name "*.la" -delete
