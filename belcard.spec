@@ -4,8 +4,8 @@
 
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
-Version:	4.4.24
-Release:	2
+Version:	4.4.34
+Release:	1
 License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
@@ -72,7 +72,7 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
   -DENABLE_STATIC:BOOL=NO \
   -DENABLE_STRICT:BOOL=NO \
   -DENABLE_UNIT_TESTS=NO \
-  -DENABLE_UNIT_TESTS:BOOL=OFF
+  -DENABLE_UNIT_TESTS:BOOL=OFF \
   -G Ninja
 
 %ninja_build
