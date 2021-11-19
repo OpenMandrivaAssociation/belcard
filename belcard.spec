@@ -4,8 +4,8 @@
 
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
-Version:	5.0.44
-Release:	3
+Version:	5.0.51
+Release:	1
 License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
