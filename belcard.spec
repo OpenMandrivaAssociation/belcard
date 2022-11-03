@@ -2,6 +2,10 @@
 %define libname %mklibname %{name}
 %define devname %mklibname %{name} -d
 
+%bcond_with	static
+%bcond_without	strict
+%bcond_with	tests
+
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
 Version:	5.1.67
@@ -69,12 +73,11 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
 
 %build
 %cmake \
-	-DENABLE_STATIC:BOOL=NO \
-	-DENABLE_STRICT:BOOL=YES \
-	-DENABLE_UNIT_TESTS=NO \
-	-DENABLE_UNIT_TESTS:BOOL=OFF \
+	-DENABLE_STRICT:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
+	-DENABLE_STATIC:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
+	-DENABLE_UNIT_TESTS:BOOL=%{?with_tests:ON}%{?!with_tests:OFF} \
+	-DENABLE_TESTS:BOOL=%{?with_tests:ON}%{?!with_tests:OFF} \
 	-G Ninja
-
 %ninja_build
 
 %install
