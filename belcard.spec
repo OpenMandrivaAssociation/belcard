@@ -73,8 +73,8 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
 
 %build
 %cmake \
-	-DENABLE_STRICT:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
 	-DENABLE_STATIC:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
+	-DENABLE_STRICT:BOOL=%{?with_strict:ON}%{?!with_strict:OFF} \
 	-DENABLE_UNIT_TESTS:BOOL=%{?with_tests:ON}%{?!with_tests:OFF} \
 	-DENABLE_TESTS:BOOL=%{?with_tests:ON}%{?!with_tests:OFF} \
 	-G Ninja
