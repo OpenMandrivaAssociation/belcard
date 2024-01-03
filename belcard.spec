@@ -16,12 +16,11 @@ URL:		https://linphone.org/
 Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 # (wally) from OpenSUSE to install pkgconfig .pc file
 Patch0:		belcard-fix-pkgconfig.patch
-Patch1:		belcard-fix-cmake-dir.patch
+Patch1:		belcard-5.3.6-fix-cmake-dir.patch
 
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
 BuildRequires:	pkgconfig(udev)
-BuildRequires:	bctoolbox-static-devel
 BuildRequires:	ninja
 
 %description
@@ -58,8 +57,8 @@ This package contains development files for %{name}
 %doc README.md
 %{_includedir}/%{name}/
 %{_libdir}/lib%{name}.so
-%{_libdir}/cmake/?elcard/
 %{_libdir}/pkgconfig/%{name}.pc
+%{_datadir}/cmake/BelCard/
 
 #---------------------------------------------------------------------------
 
