@@ -3,7 +3,7 @@
 %define devname %mklibname %{name} -d
 
 # exclude unwanted cmake requires
-%global __provides_exclude_from ^%{_datadir}/cmake/*/Find.*cmake$
+%global __provides_exclude_from ^%{_datadir}/cmake/.*/Find.*cmake$
 
 %bcond_with	static
 %bcond_without	strict
@@ -12,7 +12,7 @@
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
 Version:	5.3.15
-Release:	2
+Release:	3
 License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
@@ -84,6 +84,4 @@ sed -i -e '/BELCARD/s/\(VERSION\)\s\+[0-9]\(\.[0-9]\)\+/\1 %{version}/' CMakeLis
 
 %install
 %ninja_install -C build
-
-find %{buildroot} -name "*.la" -delete
 
