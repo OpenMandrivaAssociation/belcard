@@ -1,0 +1,22 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -65,6 +65,10 @@ configure_file("${CMAKE_CURRENT_SOURCE_D
+ set_source_files_properties("${CMAKE_CURRENT_BINARY_DIR}/config.h" PROPERTIES GENERATED ON)
+ add_definitions("-DHAVE_CONFIG_H")
+ 
++set(PACKAGES_PRIVATE "belr bctoolbox")
++configure_file(${CMAKE_CURRENT_SOURCE_DIR}/belcard.pc.in ${CMAKE_CURRENT_BINARY_DIR}/belcard.pc)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/belcard.pc DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
++
+ set(STRICT_OPTIONS_CPP )
+ set(STRICT_OPTIONS_C )
+ set(STRICT_OPTIONS_CXX )
+--- a/belcard.pc.in
++++ b/belcard.pc.in
+@@ -5,5 +5,5 @@
+ Description: Belcard is Belledonne Communications' vCard 4 parsing library
+ Version: @PROJECT_VERSION@
+ Libs: -L@CMAKE_INSTALL_FULL_LIBDIR@ -lbelcard
+-Libs.private: @LIBS_PRIVATE@
++Requires.private: @LIBS_PRIVATE@
+ Cflags: -I@CMAKE_INSTALL_FULL_INCLUDEDIR@

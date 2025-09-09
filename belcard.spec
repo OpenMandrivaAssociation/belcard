@@ -18,14 +18,15 @@ License:	GPLv3+
 Group:		System/Libraries
 URL:		https://linphone.org/
 Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# (wally) from OpenSUSE to install pkgconfig .pc file
-Patch0:		belcard-fix-pkgconfig.patch
-Patch1:		belcard-5.3.6-fix-cmake-dir.patch
 
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(belr)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	ninja
+
+%patchlist
+belcard-5.4.42-fix_pkgconfig.patch
+belcard-5.3.6-fix-cmake-dir.patch
 
 %description
 Belcard is a C++ library to manipulate the vCard standard format.
