@@ -12,7 +12,7 @@
 
 Summary:	C++ library to manipulate vCard standard format
 Name:		belcard
-Version:	5.4.106
+Version:	5.4.121
 Release:	1
 License:	GPLv3+
 Group:		System/Libraries
